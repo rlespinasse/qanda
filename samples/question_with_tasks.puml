@@ -1,0 +1,13 @@
+@startuml qanda
+hide empty description
+
+state "This repository is call 'qanda'" as q1
+' Add some context
+q1 : Check the folder name
+q1 : Check the origin remote url with 'git remote -v'
+' Define q1 as root question
+[*] --> q1
+' Propose possible answers
+q1 --> [*] : Yes
+q1 --> [*] : No
+@enduml

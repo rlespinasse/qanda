@@ -1,0 +1,14 @@
+@startuml qanda
+hide empty description
+
+state "This repository is call 'qanda'" as q1
+' Define q1 as root question
+[*] --> q1
+' Propose possible answers linked to the other question
+q1 --> q2 : Yes
+q1 --> q2 : No
+
+state "Are you sure" as q2
+q2 --> [*] : Yes
+q2 --> [*] : No
+@enduml

@@ -1,0 +1,27 @@
+@startuml qanda
+hide empty description
+
+state "Question 1" as q1
+[*] --> q1
+q1 --> q2 : Anwser leading to question 2
+q1 --> q3 : Anwser leading to question 3
+q1 --> [*] : One possible answer from question 1
+
+state "Question 2" as q2
+[*] --> q2
+q2 --> q3 : Anwser leading to question 3
+q2 --> q4 : Anwser leading to question 4
+
+state "Question 3" as q3
+q3 --> q4 : Anwser leading to question 4
+q3 --> q5 : Anwser leading to question 5
+q3 --> [*] : One possible answer from question 3
+
+state "Question 4" as q4
+q4 --> q1 : Anwser leading to question 1
+q4 --> q5 : Anwser leading to question 5
+
+state "Question 5" as q5
+q5 --> [*] : One possible answer from question 5
+q5 --> [*] : Another possible answer from question 5
+@enduml

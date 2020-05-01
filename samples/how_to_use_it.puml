@@ -1,0 +1,38 @@
+@startuml qanda
+hide empty description
+
+state "Have you add an qanda file as argument" as q1
+q1 : Read the executed command line
+q1 : Check the argument in the "docker run" command line
+[*] --> q1
+q1 --> q2 : Yes
+q1 --> q6 : No
+
+state "Have you set the '/data' volume in the command line" as q2
+q2 : Read the executed command line
+q2 : Check the "-v local_dir:/data" option in the "docker run" command line
+q2 --> q3 : Yes
+q2 --> q6 : No
+
+state "Your file exists in the 'local_dir' folder" as q3
+q3 : Read the executed command line
+q3 : Check the 'local_dir' folder content from the "-v local_dir:/data" option in the "docker run" command line
+q3 --> q4 : Yes
+q3 --> q5 : No
+
+state "What do you want to do" as q4
+q4 : Get the executed command line
+q4 --> [*] : Open an issue on https://github.com/rlespinasse/qanda with the command line
+q4 --> [*] : Read the documentation on https://github.com/rlespinasse/qanda and retry
+
+state "Are you ready to retry it" as q5
+q5 : Read the documentation on https://github.com/rlespinasse/qanda
+q5 : Write your own file like "my_qanda_file.puml"
+q5 --> q6 : Yes
+q5 --> [*] : No, I need more time to do so
+
+state "Do this fix your issue" as q6
+q6 : In another terminal, run "docker run -it -v $(PWD):/data qanda my_qanda_file.puml"
+q6 --> [*] : Yes
+q6 --> q1 : No
+@enduml

@@ -1,0 +1,5 @@
+@startuml qanda
+hide empty description
+state "no_answer" as q1
+[*] --> q1
+@enduml

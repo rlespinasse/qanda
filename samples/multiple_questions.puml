@@ -1,0 +1,24 @@
+@startuml qanda
+hide empty description
+
+state "This folder is call 'qanda'" as q1
+' Define q1 as root question
+[*] --> q1
+' Propose possible answers linked to the other question
+q1 --> q2 : Yes
+q1 --> q3 : No
+
+state "Are you sure" as q2
+q2 --> [*] : Yes
+q2 --> q3 : No
+
+state "This folder is a git repository" as q3
+q3 --> q4 : Yes
+q3 --> [*] : No
+
+state "This repository is call 'qanda'" as q4
+' Add some context
+q4 : Check the origin remote url with 'git remote -v'
+q4 --> [*] : Yes
+q4 --> [*] : No
+@enduml
