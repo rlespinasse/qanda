@@ -23,7 +23,7 @@ image:https://img.shields.io/badge/Made%20with-fzf-4EAA25.svg?style=for-the-badg
 ----
 $ ./qanda.sh samples/simple_question.puml
 Question 1
-> This repository is call 'qanda'?
+> Is this repository called 'qanda'?
   [X] Yes
   [ ] No
 ----
@@ -33,7 +33,7 @@ Question 1
 $ docker pull rlespinasse/qanda
 $ docker run -it -v $(PWD):/data rlespinasse/qanda my_qanda_file.puml
 Question 1
-> This docker image is call 'qanda'?
+> Is this docker image called 'qanda'?
   [X] Yes
   [ ] No
 ----
@@ -53,7 +53,7 @@ NOTE: You can use a `PlantUML` plugin to preview your file (see https://plantuml
 @startuml qanda
 hide empty description
 
-state "This repository is call 'qanda'" as q1
+state "This repository is called 'qanda'" as q1
 ' Define q1 as root question
 [*] --> q1
 ' Propose possible answers
@@ -75,7 +75,7 @@ q1 --> [*] : No
 @startuml qanda
 hide empty description
 
-state "This repository is call 'qanda'" as q1
+state "This repository is called 'qanda'" as q1
 ' Define q1 as root question
 [*] --> q1
 ' Propose possible answers linked to the other question
@@ -101,7 +101,7 @@ q2 --> [*] : No
 @startuml qanda
 hide empty description
 
-state "This repository is call 'qanda'" as q1
+state "This repository is called 'qanda'" as q1
 ' Add some context
 q1 : Check the folder name
 q1 : Check the origin remote url with 'git remote -v'
@@ -126,7 +126,7 @@ q1 --> [*] : No
 @startuml qanda
 hide empty description
 
-state "This folder is call 'qanda'" as q1
+state "This folder is called 'qanda'" as q1
 ' Define q1 as root question
 [*] --> q1
 ' Propose possible answers linked to the other question
@@ -141,7 +141,7 @@ state "This folder is a git repository" as q3
 q3 --> q4 : Yes
 q3 --> [*] : No
 
-state "This repository is call 'qanda'" as q4
+state "This repository is called 'qanda'" as q4
 ' Add some context
 q4 : Check the origin remote url with 'git remote -v'
 q4 --> [*] : Yes
@@ -160,23 +160,23 @@ hide empty description
 
 state "Question 1" as q1
 [*] --> q1
-q1 --> q2 : Anwser leading to question 2
-q1 --> q3 : Anwser leading to question 3
+q1 --> q2 : Answer leading to question 2
+q1 --> q3 : Answer leading to question 3
 q1 --> [*] : One possible answer from question 1
 
 state "Question 2" as q2
 [*] --> q2
-q2 --> q3 : Anwser leading to question 3
-q2 --> q4 : Anwser leading to question 4
+q2 --> q3 : Answer leading to question 3
+q2 --> q4 : Answer leading to question 4
 
 state "Question 3" as q3
-q3 --> q4 : Anwser leading to question 4
-q3 --> q5 : Anwser leading to question 5
+q3 --> q4 : Answer leading to question 4
+q3 --> q5 : Answer leading to question 5
 q3 --> [*] : One possible answer from question 3
 
 state "Question 4" as q4
-q4 --> q1 : Anwser leading to question 1
-q4 --> q5 : Anwser leading to question 5
+q4 --> q1 : Answer leading to question 1
+q4 --> q5 : Answer leading to question 5
 
 state "Question 5" as q5
 q5 --> [*] : One possible answer from question 5
